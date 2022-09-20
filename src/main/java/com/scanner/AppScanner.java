@@ -70,7 +70,11 @@ public class AppScanner {
 	}
 	
 	private static int countFiles(File file) {
-		return file.list().length;
+    String[] list = file.list();
+    if (list == null) {
+      return 0;
+    }
+		return list.length;
 	}
 	
 	public double countSource(String path) {
